@@ -1,0 +1,478 @@
+
+/* bintang(*) artinya semua element pada html akan menggunakan style yang diinginkan secara keseluruhan */
+* {                                         
+    font-family: "Montserrat";
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+/* select for  tag   ---> NAMAtag*/
+h1 {
+    /* Mengatur ketebalan kata/huruf */
+    font-weight: 0;    
+    /* Mengatur ukuran huruf */
+    font-size: 48px;
+    /* font-style: italic; */
+    margin: 0 0 16px 0;
+}
+
+
+a {
+    text-decoration: none;
+    /* text-align: justify;
+    color: gold; */
+    font-size: 24px;
+}
+
+
+nav > a{
+    margin-left: 12px;
+    padding: 8px 12px;
+    border: 2px solid purple; 
+    font-size: 24px;
+}
+
+nav > a:hover{
+    color: aqua;
+}
+
+p{
+    color: #979797;
+    margin: 0 0 16px 0; /* attribut: atas(px) kanan(px) bawah(px) kiri(px) -dengan clockwise-*/
+    font-size: 24px;
+}
+
+section{
+    padding: 64px 128px;
+}
+
+img, iframe{
+    width: 100%;
+}
+
+
+/* select for  class   ---> .NAMAclass*/
+.btn{
+    background-color: #FFC108;
+    color: white;
+    padding: 8px 24px;   /*atas kanan bawah kiri (clockwise)*/
+}
+
+.btn-alt{
+    background-color: white;
+    color: black;
+    border: 2px solid #FFC108;
+    margin-right: 16px;
+}
+
+/* Styling Header dan Landing */
+
+#header{
+    display: flex;
+    align-items: center;
+    background-color: #FFC108;
+    justify-content: space-between;
+    padding: 16px 128px;   /*(atas-bawah)px (kiri-kanan)px*/
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+#header h1{
+    margin: 0;
+    /*animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation: flash 1s infinite;
+    -webkit-animation: flash 1s infinite;
+    */animation: FadeIn 1s ;
+}
+
+
+@keyframes FadeIn{
+    0%{
+        filter: opacity(0);
+        -webkit-filter: opacity(0);
+        transform: translateY(-20px);
+        -webkit-transform: translateY(-20px);
+        -moz-transform: translateY(-20px);
+        -ms-transform: translateY(-20px);
+        -o-transform: translateY(-20px);
+    }
+
+    35%{
+        filter: opacity(0.25);
+        -webkit-filter: opacity(0.25);
+        transform: translateY(-15px);
+        -webkit-transform: translateY(-15px);
+        -moz-transform: translateY(-15px);
+        -ms-transform: translateY(-15px);
+        -o-transform: translateY(-15px);
+    }
+
+    50%{
+        filter: opacity(0.35);
+        -webkit-filter: opacity(0.35);
+        transform: translateY(-12px);
+        -webkit-transform: translateY(-12px);
+        -moz-transform: translateY(-12px);
+        -ms-transform: translateY(-12px);
+        -o-transform: translateY(-12px);
+}
+    70%{
+        filter: opacity(0,5);
+        -webkit-filter: opacity(0,5);
+        transform: translateY(-10px);
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+    }
+    90%{
+        filter: opacity(0,75);
+        -webkit-filter: opacity(0,75);
+        transform: translateY(-5px);
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+    }
+    100%{
+        filter: opacity(1);
+        -webkit-filter: opacity(1);
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+    }
+}
+
+@keyframes flash{
+    form{
+        filter: opacity(0);
+        -webkit-filter: opacity(0);
+    }
+    to{
+        filter: opacity(1);
+        -webkit-filter: opacity(1);
+    }
+}
+
+#landing{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 16px;
+    
+    
+}
+
+#landing p{     /*Descendant Combinator (untuk setiap descendant class landing untuk tag p)*/
+    margin-bottom: 32px;
+
+}
+
+#landing > div{
+    width: 50%;
+}
+
+/* Styling About */
+
+#about{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 16px;
+}
+
+#about > div{
+    width: 50%;
+    
+}
+
+#about-stats{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    text-align: center;
+    margin-top: 72px;
+}
+
+#about-stats p{
+    font-weight: bold;
+    font-size: 28px;
+    color: black
+    
+}
+
+.about-stats-item{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+
+    
+}
+
+.about-stats-item div {
+    width: 50px ;
+    height: 10px;
+    background-color: #FFC108;
+    margin-bottom: 16px;
+}
+
+
+/* Styling Services  */
+
+.service-header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+
+.service-header h1{
+    position: relative;
+}
+
+.service-header h1::before{
+    content: "";
+    width: 60px;
+    height: 60px;
+    background: url("images/accent1.svg");
+    position: absolute;
+    left: -20px;
+    top: -10px;
+    z-index: -1;
+}
+
+.service-detail{
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 128px;
+    margin-top: 72px;
+}
+
+.service-detail-item{
+    /*box-shadow:; -->x-axis(px)y-axis(px)keburaman(px)warna*/box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.service-detail-item:hover{
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+}
+
+.service-detail-item img{
+    width: 100%;
+    filter: saturate(1);    /*saturate, contrast, invert, brightness, blur, opacity, grayscale, dll*/
+    -webkit-filter: saturate(1);
+}
+
+.service-detail-item h2{
+    padding: 0px 16px;
+}
+
+.service-detail-item p{
+    font-size: 16px;
+    padding: 0px 16px;
+}
+
+#contact h1{
+    position: relative;
+}
+
+#contact > h1::before{
+    content: "";
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background: url("images/accent2.svg");
+    left: -20px;
+    top: -10px;
+    z-index: -1;
+}
+
+/* Styling Contact and Footer */
+.contact-detail{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 72px;
+    column-gap: 128px;
+}
+
+.contact-detail > div,form{
+    width: 50%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #FFC108;
+    padding: 64px 32px;
+}
+
+form h1{
+    font-size: 32px;
+    text-align: center;
+}
+
+form button{
+    border: none;
+}
+
+form button:hover{
+    cursor: pointer;
+}
+
+.form-group{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+    margin-top: 32px;
+    grid-template-areas:    "name subject"
+                            "email phone"
+                            "message message";
+}
+
+
+
+#input-name{
+    grid-area: name;
+}
+
+#input-subject{
+    grid-area: subject;
+}
+
+#input-email{
+    grid-area: email;
+}
+
+#input-phone{
+    grid-area: phone;
+}
+
+#input-message{
+    grid-area: message;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.input-group label{
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-size: 24px;
+}
+
+.input-group input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+}
+
+.input-group input:focus{
+    border-bottom: 2px solid aqua ;
+}
+
+footer{
+    padding: 16px 128px;
+    background-color: #FFC108;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+footer p{
+    color: white;
+    width: 25%;
+}
+
+.social-icon{
+    display: flex;
+    gap: 32px;
+}
+
+@media only screen and (max-width: 1200px){
+    .service-detail{
+        gap: 24px;
+    }
+
+    .contact-detail{
+        gap: 24px;
+    }
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    html, body{
+        #header, footer {
+            padding: 16px 32px;
+        }
+    }
+
+    section{
+        padding: 64px 32px;
+    }
+
+    #landing{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #landing > div{
+        width: 100%;
+    }
+
+    #about{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #about > div{
+        width: 100%;
+    }
+
+    .service-detail{
+        width: 100%;
+        gap: 16px;
+        flex-direction: row ;
+    }
+
+    .contact-detail{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        gap: 64px;
+
+    }
+
+    .contact-detail form, .contact-detail > div{
+        width: 100%;
+    }
+}
+
+
+
+
